@@ -43,14 +43,16 @@ int main()
     Mapa render(800,pred_areas_numx,pred_bloq_numx);
     while (window.isOpen())
     {
+        jugador.obtener_mouse(window);
         // check all the window's events that were triggered since the last iteration of the loop
         sf::Event event;
         
-        jugador.setmovmou();
+       jugador.setmovmou();
         jugador.girarmouse();
         while (window.pollEvent(event))
         {
-
+           
+             //jugador.girarmouse();
             // "close requested" event: we close the window
             if (event.type == sf::Event::Closed)
                 window.close();
@@ -88,8 +90,9 @@ int main()
             std::cout<<"mousepressed"<<mposition.x<<mposition.y<<"|";
             jugador.seguimiento.x=jugador.posicionmouse.x;
             jugador.seguimiento.y=jugador.posicionmouse.y;
-
+            
         }
+        // jugador.setmovmou();
         //
         x=(x+1)%300;
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::E))x=0;
