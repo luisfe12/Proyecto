@@ -1,4 +1,5 @@
 #include "Headers.h"
+#include "personaje.cpp"
 #define Nentity 500
 using namespace std;
 using namespace sf;
@@ -16,9 +17,25 @@ int main()
     {
         mobs[i].setPosx_y(1366/2,768/2);
     }
-    personaje jugador(Texture textura2, Sprite sprite2);
-    //jugador(Texture textura1, Sprite sprite1);
+   
+   // personaje jugador;
+    Texture textura2;
+    Sprite sprite2;
+    Vector2i mouse;
+    Vector2i segui;
+    Vector2f p3;
+    Vector2f giro3;
+    int tam1;
+    float angl1;
+    double a1, b1;
+    personaje jugador( textura2,  sprite2);
+    jugador.setmouse(mouse);
+    jugador.setseguimeiento(segui);
+    jugador.setmvep(p3);
+    jugador.setgiro(giro3);
+    jugador.setangulo(tam1, angl1, a1, b1);
     jugador.obtener_mouse(window);
+    
     Entidad mobs123[4]={{400,400,5},{400,400,5},{400,400,5},{400,400,5}};
     int x=0;
     window.setFramerateLimit(60);
@@ -28,6 +45,7 @@ int main()
     {
         // check all the window's events that were triggered since the last iteration of the loop
         sf::Event event;
+        window.draw(jugador.getsprite());
         jugador.setmovmou();
         jugador.girarmouse();
         while (window.pollEvent(event))
@@ -91,6 +109,7 @@ int main()
         // window.draw(...);
         std::cout<<std::endl;
         // end the current frame
+        //window.draw(jugador.getsprite());
         window.display();
     }
 
