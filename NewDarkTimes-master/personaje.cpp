@@ -8,8 +8,11 @@ personaje::personaje(Texture textuta2, Sprite sprite2)
 	sprite1=sprite2;
 	//textura1= new Texture;
     textura1.loadFromFile("prueba.jpg");
+	sprite1.setTexture(textura1);
     //sprite1= new Sprite(*textura1);
 	sprite1.move(400,400);
+	seguimiento.x=400;
+    seguimiento.y=400;
     //sprite2->move(400,400);
     seguimiento.x=400;
     seguimiento.y=400;

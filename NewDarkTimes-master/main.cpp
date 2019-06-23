@@ -10,7 +10,7 @@ int main()
 {
     // create the window
     sf::RenderWindow window(sf::VideoMode(pred_window_tamx,pred_window_tamy), "My window");
-    window.setMouseCursorGrabbed(0);
+    //window.setMouseCursorGrabbed(0);
     srand(time(NULL));
     Zombie *mobs=new Zombie[Nentity];
     for(int i = 0; i < Nentity; i++)
@@ -45,7 +45,7 @@ int main()
     {
         // check all the window's events that were triggered since the last iteration of the loop
         sf::Event event;
-        window.draw(jugador.getsprite());
+        
         jugador.setmovmou();
         jugador.girarmouse();
         while (window.pollEvent(event))
@@ -54,14 +54,27 @@ int main()
             // "close requested" event: we close the window
             if (event.type == sf::Event::Closed)
                 window.close();
+            if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
+            sf::CircleShape ward(100);
+            ward.setFillColor(sf::Color(100,100,100));
+            sf::Vector2i mposition= sf::Mouse::getPosition();
+            ward.setPosition(sf::Vector2f(mposition.x,mposition.y));
+            window.draw(ward);
+            std::cout<<"mousepressed"<<mposition.x<<mposition.y<<"|";
+            jugador.seguimiento.x=jugador.posicionmouse.x;
+            jugador.seguimiento.y=jugador.posicionmouse.y;
+
+        }
         }
 
         // clear the window with black color
+        //window.draw(jugador.getsprite());
         window.clear(sf::Color::Black);
         //
         //DIBUJO DEL MAPA
         //render.Dibujar(window,1);
         //render.Dibujar(window,2);
+        
         render.Dibujar_mapa(window);
         //render.Dibujar_Area(window,0);
 
@@ -73,6 +86,9 @@ int main()
             ward.setPosition(sf::Vector2f(mposition.x,mposition.y));
             window.draw(ward);
             std::cout<<"mousepressed"<<mposition.x<<mposition.y<<"|";
+            jugador.seguimiento.x=jugador.posicionmouse.x;
+            jugador.seguimiento.y=jugador.posicionmouse.y;
+
         }
         //
         x=(x+1)%300;
@@ -110,6 +126,7 @@ int main()
         std::cout<<std::endl;
         // end the current frame
         //window.draw(jugador.getsprite());
+        window.draw(jugador.getsprite());
         window.display();
     }
 
