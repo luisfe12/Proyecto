@@ -29,6 +29,7 @@ class personaje
         void setmvep(Vector2f p1);
         void setgiro(Vector2f giro1);
         void setangulo(int &tam1, float &angulo, double &a1, double &b1);
+        Vector2i getmouse();
         void obtener_mouse(RenderWindow &Window);
         void girarmouse();
         void setmovmou();

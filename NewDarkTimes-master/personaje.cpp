@@ -7,7 +7,7 @@ personaje::personaje(Texture textuta2, Sprite sprite2)
 	textura1=textuta2;
 	sprite1=sprite2;
 	//textura1= new Texture;
-    textura1.loadFromFile("prueba.jpg");
+    textura1.loadFromFile("prueba.png");
 	sprite1.setTexture(textura1);
     //sprite1= new Sprite(*textura1);
 	sprite1.move(400,400);
@@ -21,7 +21,7 @@ personaje::personaje(Texture textuta2, Sprite sprite2)
         //2.f=2.0, ya que son decimales.
         //sprite1->setColor(Color::Blue);
        // sprite2->setScale(((float)ventana1->getSize().x/sprite2->getTexture()->getSize().x),((float)ventana1->getSize().y/sprite2->getTexture()->getSize().y));
-    sprite1.setScale(((float)100/sprite1.getTexture()->getSize().x),((float)100/sprite1.getTexture()->getSize().y));
+    sprite1.setScale(((float)15/sprite1.getTexture()->getSize().x),((float)15/sprite1.getTexture()->getSize().y));
 }
 
 Sprite personaje::getsprite()
@@ -55,6 +55,8 @@ void personaje::setangulo(int &tam1, float &angulo, double &a1, double &b1)
 	a=a1;
 	b=b1;
 }
+
+
 void personaje::obtener_mouse(RenderWindow &Window)
 {
     posicionmouse=Mouse::getPosition(Window);
